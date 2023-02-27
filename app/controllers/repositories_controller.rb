@@ -10,6 +10,7 @@ class RepositoriesController < ApplicationController
 
     @total_count = response["total_count"]
 
+    logger.debug "Search query successful ... rendering to search with results"
     render :search, status: :ok
   end
 
@@ -20,6 +21,8 @@ class RepositoriesController < ApplicationController
 
     unless @search_query.valid?
       @message = @search_query.errors.full_messages_for(:query).first unless search_params.empty?
+
+      logger.debug "Search query failed ... rendering to search with error"
       render :search, status: :unprocessable_entity
     end
   end
