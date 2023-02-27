@@ -10,7 +10,7 @@ class Repository
 
     @name  = attrs[:name]
     @full_name = attrs[:full_name]
-    @owner_name = attrs[:owner][:name]
+    @owner_name = attrs.dig(:owner, :name) || 'N/A'
     @html_url = attrs[:html_url]
     @description = attrs[:description]
     @language = attrs.dig(:language) || 'N/A'

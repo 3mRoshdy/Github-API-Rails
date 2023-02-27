@@ -12,15 +12,16 @@ RSpec.describe RepositoriesController, type: :controller do
 
       it 'should return empty response when no params provided' do
         get :search
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
+        expect(response).to_not be_successful
       end
     end
 
     describe 'when params are sent to search request' do
       before do
         allow(GithubApiHelper).to receive(:search_repositories).and_return({
-          total_count: 1,
-          items: [{
+          "total_count" => 1,
+          "items" => [{
             name: 'github-repo',
             url: 'dummy-url'
           }]
