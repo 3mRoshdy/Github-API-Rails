@@ -36,3 +36,6 @@
 
 # Ignore .byebug_history
 .byebug_history
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

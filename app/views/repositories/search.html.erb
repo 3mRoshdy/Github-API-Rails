@@ -1,20 +1,33 @@
-<h1>Github Public Repos</h1>
+<div>
+  <h1 class="font-bold text-2xl box">Github Public Repos</h1>
 
-<%= form_tag(search_path, method: "get") do %>
-  <%= label_tag(:name, "Search repository names:") %>
-  <%= text_field_tag(:query, nil, id: "search_term") %>
-  <%= submit_tag("Search", name: nil) %>
-<% end %>
+  <div class="mt-4 box">
+    <%= form_tag(search_path, method: "get", class: "mb-7") do %>
+      <div class="mb-5">
+        <%= text_field_tag(:query, nil, id: "search_term", placeholder: "Add search keyword", class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none") %>
+        <%= submit_tag("Search", name: nil, class: "btn py-2 ml-2 bg-blue-600 text-white") %>
+      </div>
+    <% end %>
+  </div>
 
-<% if @message.present? %>
-  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
-    <%= @message %>
-  </p>
-<% end %>
+  <% if @message.present? %>
+    <div class="text-center">
+      <p class="p-2 bg-red-50 m-2 text-red-500 font-medium rounded-lg inline-block" id="notice">
+        <%= @message %>
+      </p>
+    </div>
+  <% end %>
 
-<% if @repos.present? && @total_count.present? %>
-  <%= "Showing #{@repos.count} out of #{@total_count}"%>
-  <br/>
-<% end %>
+  <% if @repos.present? && @total_count.present? %>
+    <div class="text-center">
+      <p class="p-2 bg-green-50 m-2 text-green-500 font-medium rounded-lg inline-block">
+        <%= "Showing #{@repos.count} out of #{@total_count}"%>
+      </p>
+    </div>
+    <br/>
+  <% end %>
 
-<%= render partial: "repository", collection: @repos %>
+  <div class="flex flex-col">
+    <%= render partial: "repository", collection: @repos %>
+  </div>
+</div>

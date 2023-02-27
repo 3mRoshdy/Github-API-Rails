@@ -1,10 +1,37 @@
-<%= repository.name %>
-<%= repository.full_name %>
-<%= repository.description %>
-<%= repository.size %>
-<%= repository.owner_name %>
-<%= repository.language %>
-<%= repository.license_name %>
+<div class="center-container inline-block p-4 m-4 shadow rounded-md border border-gray-200 outline-none" style="flex-direction: column">
+  <div class="mb-2" style="display: flex; flex-direction: column">
+    <h1 class="text-2xl">
+      <%= repository.name %>
+    </h1>
 
-<%= link_to "Check repo url", repository.html_url %>
-<br/>
+    <h2 class="text-lg">
+      <%= repository.full_name %>
+    </h2>
+  </div>
+
+  <div class="flex flex-row mb-2">
+    <p class="flex-1 text-base font-light">
+      <%= repository.description %>
+    </p>
+  </div>
+
+  <div class="flex flex-1 flex-col">
+    <p class="flex-1 mb-2 text-base font-normal">
+      <%= "Language: #{repository.language}" %>
+    </p>
+
+    <p class="flex-1 mb-2 text-base">
+      <%= "Size: #{repository.size}" %>
+    </p>
+
+    <p class="flex-1 mb-2 text-base font-semibold">
+      <%= "License: #{repository.license_name}" %>
+    </p>
+  </div>
+
+  <div class="btn border text-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+    <%= link_to "Check repo url", repository.html_url%>
+  </div>
+
+  <br/>
+</div>
