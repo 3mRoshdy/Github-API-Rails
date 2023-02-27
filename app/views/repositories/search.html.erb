@@ -1,0 +1,15 @@
+<h1>Github Public Repos</h1>
+
+<%= form_tag(search_path, method: "get") do %>
+  <%= label_tag(:name, "Search repository names:") %>
+  <%= text_field_tag(:query, nil, id: "search_term") %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @message.present? %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+    <%= @message %>
+  </p>
+<% end %>
+
+<%= render "repositories" %>
