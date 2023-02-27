@@ -13,7 +13,7 @@ class Repository
     @owner_name = attrs[:owner][:name]
     @html_url = attrs[:html_url]
     @description = attrs[:description]
-    @language = attrs[:language]
+    @language = attrs.dig(:language) || 'N/A'
     @size = attrs[:size]
     @license_name = attrs.dig(:license, :name) || 'N/A'
   end
