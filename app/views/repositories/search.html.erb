@@ -12,4 +12,9 @@
   </p>
 <% end %>
 
-<%= render "repositories" %>
+<% if @repos.present? && @total_count.present? %>
+  <%= "Showing #{@repos.count} out of #{@total_count}"%>
+  <br/>
+<% end %>
+
+<%= render partial: "repository", collection: @repos %>
