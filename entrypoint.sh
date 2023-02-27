@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-bundle install
+bundle check || bundle install
 
 ./bin/rails tailwindcss:install
 
