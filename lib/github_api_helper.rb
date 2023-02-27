@@ -11,8 +11,6 @@ class GithubApiHelper
         'Accept' => 'application/json'
     }
     conn = Faraday.new(GITHUB_API_URL)
-
-    Rails.logger.debug "Listing github public repos for keyword: #{params[:q]}"
     resp = conn.get("search/repositories", params, headers)
 
     JSON.parse(resp.body) if resp&.body
