@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Repository" do
-
-  let(:valid_params) { 'bar' }
   let(:attributes) do
     {
       name: "name",
@@ -29,6 +27,13 @@ RSpec.describe "Repository" do
         repository = Repository.new(attributes)
 
         expect(repository.valid?).to be_truthy
+        expect(repository.name).to eq(attributes[:name])
+        expect(repository.full_name).to eq(attributes[:full_name])
+        expect(repository.owner_name).to eq(attributes[:owner][:name])
+        expect(repository.language).to eq(attributes[:language])
+        expect(repository.html_url).to eq(attributes[:html_url])
+        expect(repository.size).to eq(attributes[:size])
+
         expect(repository.license_name).to eq('N/A')
       end
     end

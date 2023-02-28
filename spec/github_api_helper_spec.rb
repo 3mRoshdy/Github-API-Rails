@@ -17,13 +17,21 @@ RSpec.describe "GithubApiHelper" do
   end
 
   it "should be able to search public repositories without sending search params" do
-    expect_any_instance_of(Faraday::Connection).to receive(:get).with(search_term, {q: '', page: 1, per_page: 50}, {'Accept' => 'application/json'})
+    expect_any_instance_of(Faraday::Connection).to receive(:get).with(
+      search_term,
+      {q: '', page: 1, per_page: 50},
+      {'Accept' => 'application/json'}
+    )
 
     GithubApiHelper.search_repositories()
   end
 
   it "should be able to search public repositories with search params" do
-    expect_any_instance_of(Faraday::Connection).to receive(:get).with(search_term, search_params[:params], search_params[:headers])
+    expect_any_instance_of(Faraday::Connection).to receive(:get).with(
+      search_term,
+      search_params[:params],
+      search_params[:headers]
+    )
 
     GithubApiHelper.search_repositories(search_params[:params][:q])
   end
