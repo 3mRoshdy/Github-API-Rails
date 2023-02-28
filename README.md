@@ -1,5 +1,7 @@
 # Github Rails API
 *Rails web application that lists out public repositories on github using a search term*
+<img width="1512" alt="Screenshot 2023-02-27 at 8 32 29 PM" src="https://user-images.githubusercontent.com/15774246/221785378-b139d5df-5c9e-401c-bec9-3883ebd93a56.png">
+
 
 ## Main components
 ```
